@@ -1,0 +1,8 @@
+http://news.baidu.com/n?cmd=1&class=civilnews&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=shizheng&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=gangaotai&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=internews&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=mil&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=hqsy&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=finannews&tn=rss&sub=0
+http://news.baidu.com/n?cmd=1&class=stock&tn=rss&sub=0

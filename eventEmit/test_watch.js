@@ -1,4 +1,6 @@
 const Watch = require("./watch");
+let watchDir = "./watch";
+let processedDir = "./done";
 
 const watcher = new Watch(watchDir, processedDir);
 
