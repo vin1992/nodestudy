@@ -1,25 +1,27 @@
 {
-  "name": "webpack-example",
+  "name": "gulp-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
+    "build": "gulp",
+    "watch": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "webpack": "^4.35.3"
-  },
-  "devDependencies": {
-    "webpack-cli": "^3.3.6"
+    "react-dom": "^16.8.6"
   }
 }

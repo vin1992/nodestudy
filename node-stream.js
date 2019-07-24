@@ -1,2 +1,2 @@
-const girlfriend = "张艺伟";
-console.log("I want you be my wife!!!", girlfriend);
+const girlfriend = "xxx";
+console.log("I want you be my lady!!!", girlfriend);
