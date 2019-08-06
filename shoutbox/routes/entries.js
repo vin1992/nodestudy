@@ -1,12 +1,13 @@
 var express = require("express");
 var router = express.Router();
 var Entry = require("../models/entry");
+var valid = require("../middleware/validate");
 
 router.get("/post", (req, res, next) => {
   res.render("post", { title: "Post" });
 });
 
-router.post("/post", (req, res, next) => {
+router.post("/post", valid.valid(10), (req, res, next) => {
   const data = req.body.entry;
   const user = res.locals.user;
   const username = user ? user.name : null;

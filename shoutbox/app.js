@@ -2,11 +2,19 @@ var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
+var session = require("express-session");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var entriesRouter = require("./routes/entries");
+var backRouter = require("./routes/back");
+var registerRouter = require("./routes/register");
+var loginRouter = require("./routes/login");
+
+var messages = require("./middleware/message");
+var user = require("./middleware/user");
+
 var app = express();
 
 // view engine setup
@@ -22,16 +30,24 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+app.use(user);
+app.use(messages);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/entries", entriesRouter);
+app.use("/back", backRouter);
+app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 
-// app.get("/post".entries.form);
-// app.post("/post".entries.submit);
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });

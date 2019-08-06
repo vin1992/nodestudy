@@ -8,17 +8,11 @@
   <title><%= title %></title>
 </head>
 <body>
-<% if (locals.user) { %>
-  <div id="menu">
-    <span class="name"><%= user.name %></span>
-    <a href="/entries/post">post</a>
-    <a href="/login/logout" >logout</a>
+  <% include menu %>
+  <div class="entry">
+    <h3><%= title %></h3>
+    <p><%= msg %></p>
   </div>
-<% } else { %>
-  <div id="menu">
-    <a href="/login">login</a>
-    <a href="/register" >register</a>
-  </div>
-<% } %>
+
 </body>
 </html>

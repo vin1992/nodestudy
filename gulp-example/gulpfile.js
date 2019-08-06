@@ -21,5 +21,3 @@ gulp.task("default", () => {
 gulp.task("watch", () => {
   watch("app/**.jsx", () => gulp.start("default"));
 });
-
-console.log("aaa");
