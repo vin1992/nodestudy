@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var logger = require("morgan");
 
+// router
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var entriesRouter = require("./routes/entries");
@@ -12,8 +13,16 @@ var backRouter = require("./routes/back");
 var registerRouter = require("./routes/register");
 var loginRouter = require("./routes/login");
 
+var Entry = require("./models/entry");
+
+// moddleware
 var messages = require("./middleware/message");
 var user = require("./middleware/user");
+var valid = require("./middleware/validate");
+var page = require("./middleware/page");
+
+// restful api
+var api = require("./routes/api");
 
 var app = express();
 
@@ -37,6 +46,8 @@ app.use(
     saveUninitialized: true
   })
 );
+
+app.use("/api", api.auth);
 app.use(user);
 app.use(messages);
 app.use(express.static(path.join(__dirname, "public")));
@@ -47,6 +58,10 @@ app.use("/entries", entriesRouter);
 app.use("/back", backRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
+
+app.use("/api/user/:id", api.user);
+app.use("/api/entries/:page?", page(Entry.count), api.entries);
+app.use("/api/entry", valid.valid(10), api.add);
 
 app.use(function(req, res, next) {
   next(createError(404));

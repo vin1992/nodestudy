@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="ejs.js"></script>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+    const template = '<%= message %>';
+    const ctx = { message:'hello ejs'};
+    window.onload = function() {
+      let dom = document.getElementById('output');
+      dom.innerHTML = ejs.render(template,ctx);
+    }
+  </script>
+</body>
+</html>

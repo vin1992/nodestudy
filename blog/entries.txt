@@ -1,0 +1,12 @@
+title: Today I`m learning node template engine
+date: August 14, 2019
+I study hard, I make progress a lot
+---
+title: It`s my birthday Today
+date: May 14, 1992
+I was born in this day,hello world!
+---
+title: I`m going to be a rich man
+date: August 12, 2019
+It`s being a long long days
+

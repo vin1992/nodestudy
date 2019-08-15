@@ -20,7 +20,11 @@ router.post("/post", valid.valid(10), (req, res, next) => {
 
   entry.save(err => {
     if (err) return next(err);
-    res.redirect("/entries/list");
+    if (req.remoteUser) {
+      res.json({ message: "Entry added" });
+    } else {
+      res.redirect("/entries/list");
+    }
   });
 });
 
