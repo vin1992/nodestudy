@@ -1,0 +1,21 @@
+#! /usr/bin/env node
+const yargs = require('yargs');
+const fs = require('fs');
+
+const argv = yargs.usage("vue-cli [option]").help('h').alias('h','help').demand('s').nargs("s",1).describe("s","the mean is saving").argv;
+
+if (argv.s == 1) {
+  console.log('haha,走这一步');
+  fs.writeFile('./file.txt','哈哈，我存进来了', (err) => {
+    if (err) throw err;
+    console.log('this file has been saved!');
+  })
+}else {
+  console.log('e,走这一步'); 
+  fs.readFile('./data.txt',(err,data) => {
+    if (err) throw err;
+    console.log('取出来的信息',data.toString());
+  }) 
+}
+
+

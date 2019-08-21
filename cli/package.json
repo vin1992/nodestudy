@@ -1,0 +1,10 @@
+{
+  "name": "parse-json",
+  "bin": {
+    "parse-json": "parse-json"
+  },
+  "dependencies": {
+    "mississippi": "^4.0.0",
+    "yargs": "^14.0.0"
+  }
+}
